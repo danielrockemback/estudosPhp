@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produtos>
+ <produto>
+  <nome>Cimento Extra Forte 40KG</nome>
+  <precoNormal>34.40</precoNormal>
+  <precoPromocao>28.90</precoPromocao>
+  <descricao>Cimento 40 KG</descricao>
+  <categoria>Material Básico</categoria>
+ </produto>
+ <produto>
+  <nome>Telha de Fibrocimento Ondulada (2,44X1,10)</nome>
+  <precoNormal>52.69</precoNormal>
+  <precoPromocao>41.81</precoPromocao>
+  <descricao>Muito conhecidas pelos consumidores, as telhas de fibrocimento são produtos leves, resistentes&#13;
+                        às variações climáticas e que proporcionam uma boa estética ao ambiente externo.As telhas de&#13;
+                         fibrocimento são a solução ideal para seu projeto, seja ele residencial, industrial ou&#13;
+                         comercial. Oferecem um acabamento perfeito para sua obra.Considere comprar telhas de&#13;
+                         fibrocimento caso queira pouco trabalho na hora da instalação - por ser uma peça leve,&#13;
+                         a sua montagem é muito fácil e rápida. Outro importante diferencial do produto é que o&#13;
+                         fibrocimento apresenta um ótimo isolamento térmico e, por isso, o conforto de toda a família&#13;
+                         estará garantido durante as quatro estações do ano.</descricao>
+  <categoria>Material Básico</categoria>
+ </produto>
+ <produto>
+  <nome>ARAME RECOZIDO Nº 18 1KG</nome>
+  <precoNormal>16.01</precoNormal>
+  <precoPromocao>13.91</precoPromocao>
+  <descricao>O Arame recozido é amplamente utilizado na construção civil para amarração de elementos&#13;
+                        estruturais, travamento das fôrmas dos elementos estruturais para concretagem, entre outras&#13;
+                        funções. São maleáveis e fáceis de usar em aplicações que exigem dobras e/ou torções. Ideais&#13;
+                        para fixar Vergalhões em armaduras de Concreto Armado</descricao>
+  <categoria>Material Básico</categoria>
+ </produto>
+</produtos>

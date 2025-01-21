@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca [
+        <!ELEMENT biblioteca (livro)+>
+        <!ELEMENT livro (titulo , autor , ano , genero)>
+        <!ELEMENT titulo (#PCDATA)>
+        <!ELEMENT autor (#PCDATA)>
+        <!ELEMENT ano (#PCDATA)>
+        <!ELEMENT genero (#PCDATA)>
+        ]>
+<biblioteca>
+    <livro>
+        <titulo>A Menina que Roubava Livros</titulo>
+        <autor>Markus Zusak</autor>
+        <ano>2005</ano>
+        <genero>Ficção</genero>
+    </livro>
+    <livro>
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <ano>1949</ano>
+        <genero>Distopia</genero>
+    </livro>
+    <livro>
+        <titulo>O Pequeno Príncipe</titulo>
+        <autor>Antoine de Saint-Exupéry</autor>
+        <ano>1943</ano>
+        <genero>Fábula</genero>
+    </livro>
+</biblioteca>

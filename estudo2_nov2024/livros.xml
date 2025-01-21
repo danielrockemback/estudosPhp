@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livraria>
+    <livro>
+        <titulo>Aprendendo PHP</titulo>
+        <autor>Maria Silva</autor>
+        <preco>39.90</preco>
+    </livro>
+    <livro>
+        <titulo>Introdução ao XML</titulo>
+        <autor>João Sousa</autor>
+        <preco>29.90</preco>
+    </livro>
+    <livro>
+        <titulo>Programação com Java</titulo>
+        <autor>Pedro Alves</autor>
+        <preco>49.90</preco>
+    </livro>
+</livraria>

@@ -1,0 +1,9 @@
+[01-11-2024 20:25:55] [INFO]: O sistema foi iniciado.
+[01-11-2024 20:25:55] [WARNING]: Uso de memória elevado.
+[01-11-2024 20:25:55] [ERROR]: Erro ao conectar ao banco de dados.
+[01-11-2024 20:26:05] [INFO]: O sistema foi iniciado.
+[01-11-2024 20:26:05] [WARNING]: Uso de memória elevado.
+[01-11-2024 20:26:05] [ERROR]: Erro ao conectar ao banco de dados.
+[04-11-2024 15:00:24] [INFO]: O sistema foi iniciado.
+[04-11-2024 15:00:24] [WARNING]: Uso de memória elevado.
+[04-11-2024 15:00:24] [ERROR]: Erro ao conectar ao banco de dados.

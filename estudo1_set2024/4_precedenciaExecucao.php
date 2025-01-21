@@ -24,11 +24,11 @@ echo $quebraLinha;
 
 $comando = 'dir';    // Comando para listar arquivos e retorna apenas a última linha da saída ou pode ser salva a saída completa em uma array
 $saida = exec($comando, $lista);
-print_r($lista) . PHP_EOL;
+#var_dump($lista) . PHP_EOL;
 
-$comando2 = 'ping google.com';
-$saida = shell_exec($comando2);  // shell_exec executa um comando passado e retorna toda a saída deste comando como uma string
-echo $saida;
+//$comando2 = 'ping google.com';
+//$saida = shell_exec($comando2);  // shell_exec executa um comando passado e retorna toda a saída deste comando como uma string
+//#echo $saida;
 
 $comando3 = 'set';  // variáveis de ambiente
 system($comando3);   // Executa o comando informado em comando e imprime o resultado imediatamente

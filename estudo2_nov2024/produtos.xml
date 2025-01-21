@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produtos>
+    <produto>
+        <nome>Notebook</nome>
+        <preco>2500.00</preco>
+        <quantidade>10</quantidade>
+    </produto>
+    <produto>
+        <nome>Smartphone</nome>
+        <preco>1500.00</preco>
+        <quantidade>25</quantidade>
+    </produto>
+</produtos>
