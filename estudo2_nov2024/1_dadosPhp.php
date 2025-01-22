@@ -21,7 +21,7 @@ $lista_composta = [1, 5.5, -10, 'PHP', true, false, null, []];  # array composto
 
 $dataNascimento = '1995-07-14';
 
-# Array composta
+# Array associativo, vai ser equivalente a dict em python
 $cadastro = [
     'nome' => 'Daniel',
     'numeroRegistro' => ['rg' => '931548365', 'cpf' => '023952105874'],
@@ -40,10 +40,11 @@ echo "Nome: {$cadastro['nome']}\nIdade: {$cadastro['idade']} anos\nRG: {$cadastr
 
 echo $quebraLinha;
 
-
+# Instância de objeto
 $cliente = new Cliente('João', '22/11/1956', 'M', '02012214221', 'Paranoá', '9999-5555');
 $funcionario = new Funcionario('Daniel', '14/07/1995', 'M', '05462176', 1111, '14:00-22:00');
 
+# Acessando/Setando atributos dos objetos
 echo $cliente->getTelefone() . PHP_EOL;
 echo $funcionario->getHorarioFuncionario() . PHP_EOL;
 echo $funcionario->setHorarioFuncionario('10:00-18:00');
@@ -66,26 +67,45 @@ $resultado = ativaFuncao('dobraValor', 150);
 
 var_dump($resultado);
 
-# Classe Anônima
+# Função anônima
+$listaPrecoProduto = [30, 20 , 14 , 36];
 
-$triplicaValor = new class
-{
-    function triplicaValor($num)
-    {
-        return $num * 3;
-    }
+# Função anônima para calcular o aumento de 15%
+$funcao = function($preco) {
+	return $preco + ($preco * 0.15);
 };
 
-var_dump($triplicaValor->triplicaValor(15));
+# a função array_map vai aplicar a função anônima ou pode ser outra função em cada item da lista
+$novoPreco = array_map($funcao, $listaPrecoProduto);
+
+print_r($novoPreco);
+
+echo $quebraLinha;
+
+# Classe Anônima
+
+class Saudacao {
+    public function dizerOla($nome) {
+        return "Olá, $nome!";
+    }
+}
+
+$objeto = new Saudacao();
+
+# Callable usando o método de classe
+$callable = [$objeto, 'dizerOla'];
+# passando o $callable(parâmetro), ele vai se portar como se estivesse chamando a classe->método $objeto->dizerOla($nome)
+echo $callable("Daniel");
 
 echo $quebraLinha;
 
 # Special (Resource, Null);
 
-# Resource abrindo o arquivo em modo leitura
+# Resource representa uma referência a um recurso externo (como uma conexão com banco de dados ou um arquivo aberto).
 
 $arquivo = fopen('/opt/apps/estudoPhp/Objetivos.txt', 'r');
 
+# Verifica se o arquivo foi aberto com sucesso
 if ($arquivo) {
     while (($linha = fgets($arquivo)) !== false) {
         echo $linha;
@@ -93,3 +113,18 @@ if ($arquivo) {
     fclose($arquivo);
 }
 
+echo $quebraLinha;
+
+#                                 NULL
+// O tipo Null é um valor especial que indica que uma variável não tem valor ou não foi inicializada.
+// Pode ser atribuído explicitamente ou indicado quando uma variável não contém nenhum valor.
+
+$variavel = $num ?? null;
+
+if (is_null($variavel)) {
+    echo "A variável é null!";
+} else {
+    echo "A variável tem valor.";
+}
+
+echo $quebraLinha;
