@@ -1,38 +1,57 @@
 Objetivo 1
+
 Estudo da apostila de VB6 (Lições 1, 2, 3, 4, 5, 8 e 9). ✔
+
 SQL e noção de conjuntos: Interseção, União, Subtração e SQL (Left, Right, Full, Cross). SQL LER PÁGINA 432 ATÉ 446 ✔
+
 PHP Passo 1: Sintaxe, Operadores, Identificadores, Estruturas de Controle, Construtores da Linguagem, Namespace, Extensões, Configurações, Performance (Memory usage, runtime, OPCache)
 
-Objetivo 2
+Objetivo 2 
+
 Passo 2: Tipos de dados, Datas e Hora, XML, XML Parsing Extensions, JSON, Formato API
+
 Passo 3 - Strings: Aspas, Heredoc/Nowdoc, Substrings, Localização e Comparação de Strings, Caracteres de String e Contagem de Palavras, Funções de Fonética, String e Arrays, Formatando a Saída, Expressões Regulares, Encodings de caracteres.
 
 Objetivo 3
-Passo 4 - Arrays: Definições, Indexação, Manipulação, Looping, Aplicando Callback, Testando Chaves e Valores, Ordenação, Junção e Comparação, SPLPasso 5 - Entrada/Saída: Funções relacionadas ao sistema de arquivos, operações e funções de informações do sistema de arquivos, Streams
+
+Passo 4 - Arrays: Definições, Indexação, Manipulação, Looping, Aplicando Callback, Testando Chaves e Valores, Ordenação, Junção e Comparação, SPL
+
+Passo 5 - Entrada/Saída: Funções relacionadas ao sistema de arquivos, operações e funções de informações do sistema de arquivos, Streams
 
 Objetivo 4
+
 Passo 6 - Funções: Declarações e Definições, Parts, Escopo, Referência, Closures
+
 Passo 7 - OOP: Construtor de classe, Objeto, Autoload, Visibilidade, Construtor/Destrutor, Class Inheritance, Final, Classes e Métodos abstratos, Interface e Trait Construct, Type Hinting, Iteração em objetos, Métodos mágicos, Comparação de Objetos, Static, Exceções e Try/Catch, Biblioteca de Reflexão, SPL, Generators and Generator Delegation, Classes anônimas.
 
 Objetivo 5
+
 Passo 8 - Databases: SQL, PDO
+
 Passo 9 - Segurança: Configuração Segura, Segurança de Sessão, Vetor de Ataque, Input Handling, Output Escaping, Password Hashing API, Armazenamento de dados, Segurança no ciclo de request/response, acesso e armazenamento.
 
 Objetivo 6
+
 Passo 10 - Funcionalidade Web: Sessions, HTML Forms and Global Arrays, Codificação/Decodificação, Upload de arquivos, Funções de rede, Autenticação HTTP
+
 Passo 11 - Tratamento de Erros: Erros e Tipos, Erro de Configuração, Error Functions, User-defined Erros, Try/Catch/Finally Exception Handling, Error Class
 
 Objetivo 7
+
 Padrões de Projetos - Comportamentais: Chain of Responsability, Template Method, State, Command, Observer, Iterator.
 
 Objetivo 8
+
 Padrões de Projetos - Criacionais: Flyweights, Factory Method, Abstract Factory, Builder, Prototype, Singleton
 
 Objetivo 9
+
 Padrões de Projetos - Estruturais: Bridge, Decorators, Composite, Face, Proxy
 
 Objetivo 10
+
 Collections: Array e Lista, Pilha, Fila, Heap, Set e Map.Composer, DDD (Linguagem ubíqua, Aggregates, Eventos de domínio, Contextos delimitados, Contexto Compartilhado, Camada anticorrupção)
 
 Objetivo 11
+
 SOLID
