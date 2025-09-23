@@ -3,14 +3,14 @@ Estudo da apostila de VB6 (Lições 1, 2, 3, 4, 5, 8 e 9). ✔
 SQL e noção de conjuntos: Interseção, União, Subtração e SQL (Left, Right, Full, Cross). SQL LER PÁGINA 432 ATÉ 446 ✔
 PHP Passo 1: Sintaxe, Operadores, Identificadores, Estruturas de Controle, Construtores da Linguagem, Namespace, Extensões, Configurações, Performance (Memory usage, runtime, OPCache)
 
-Objetivo 2
+Objetivo 2 ✔
 Passo 2: Tipos de dados, Datas e Hora, XML, XML Parsing Extensions, JSON, Formato API
 Passo 3 - Strings: Aspas, Heredoc/Nowdoc, Substrings, Localização e Comparação de Strings, Caracteres de String e Contagem de Palavras, Funções de Fonética, String e Arrays, Formatando a Saída, Expressões Regulares, Encodings de caracteres.
 
-Objetivo 3
+Objetivo 3 ✔
 Passo 4 - Arrays: Definições, Indexação, Manipulação, Looping, Aplicando Callback, Testando Chaves e Valores, Ordenação, Junção e Comparação, SPLPasso 5 - Entrada/Saída: Funções relacionadas ao sistema de arquivos, operações e funções de informações do sistema de arquivos, Streams
 
-Objetivo 4
+Objetivo 4 ✔
 Passo 6 - Funções: Declarações e Definições, Parts, Escopo, Referência, Closures
 Passo 7 - OOP: Construtor de classe, Objeto, Autoload, Visibilidade, Construtor/Destrutor, Class Inheritance, Final, Classes e Métodos abstratos, Interface e Trait Construct, Type Hinting, Iteração em objetos, Métodos mágicos, Comparação de Objetos, Static, Exceções e Try/Catch, Biblioteca de Reflexão, SPL, Generators and Generator Delegation, Classes anônimas.
 
