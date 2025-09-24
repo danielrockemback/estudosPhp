@@ -57,6 +57,39 @@ final class CaminhaoCacamba extends AbstractVeiculo {
         $this->dataTerminoViagem = $ultimaManutencao;
     }
 
+    // Método mágico __get é chamado quando você tenta acessar uma propriedade que não existe ou é privada.
+    public function __get(string $propriedade): bool
+    {
+        if (!property_exists($this, $propriedade)) {
+            echo "A propriedade {$propriedade} não existe nesse classe." . PHP_EOL;
+            return false;
+        }
+
+        return true;
+    }
+
+    // Método mágico __call é chamado quando você tenta tenta chamar um método que não existe.
+    public function __call($metodo, $args) {
+        echo "Método '$metodo' não existe." . PHP_EOL;
+    }
+
+
+    // Método mágico __toString é chamado quando o objeto é chamado como string.
+    public function __toString(): string {
+        return "Identificação do motorista responsável: $this->idMotoristaResponsavel" . PHP_EOL;
+    }
+
+
+    // Método mágico __invoke é chamado quando o objeto é invocado, pode ter ou não argumentos.
+    public function __invoke() {
+        echo "A viagem vai ser iniciada {$this->getDataInicioViagem()->format('d-m-Y-H-i-s')}" . PHP_EOL;
+    }
+
+
+    // Método mágico __clone é chamado quando o objeto é invocado, pode ter ou não argumentos.
+    public function __clone() {
+        $this->capacidadeCarga += 555;
+    }
 
 
     /**
@@ -121,6 +154,18 @@ final class CaminhaoCacamba extends AbstractVeiculo {
         $this->dataTerminoViagem = $dataTerminoViagem;
     }
 
+    public function getIdMotoristaResponsavel(): int
+    {
+        return $this->idMotoristaResponsavel;
+    }
+
+
+    public static function calculaDiasEntrega($inicio, $fim)
+    {
+        $resultado = $inicio->diff($fim);
+        return $resultado->days;
+    }
+
 
 }
 
@@ -150,4 +195,31 @@ $caminhaoCacamba = new CaminhaoCacamba(
 $caminhaoCacamba->iniciarViagem();
 $caminhaoCacamba->encerrarViagem();
 
-unset($caminhaoCacamba);
+$caminhaoCacamba->teste;
+$caminhaoCacamba->kilometragem();
+echo $caminhaoCacamba;
+$caminhaoCacamba();
+
+$cacamba = clone $caminhaoCacamba;
+echo "Nova carga máxima do clone {$cacamba->getCapacidadeCarga()}" . PHP_EOL;
+
+// Comparação de objetos
+
+class Produto {
+    public string $nome;
+    public function __construct(string $nome) {
+        $this->nome = $nome;
+    }
+}
+
+$p1 = new Produto("Cimento");
+$p2 = new Produto("Cimento");
+$p3 = $p1;
+
+var_dump($p1 == $p2);  // true  mesmo valores
+var_dump($p1 === $p2); // false ocupam lugares diferentes na memória
+var_dump($p1 === $p3); // true ocupam o mesmo lugar na memória
+
+echo "Início - {$caminhaoCacamba->getDataInicioViagem()->format('d-m-Y')} - Fim {$caminhaoCacamba->getDataTerminoViagem()->format('d-m-Y')}" . PHP_EOL;
+// Método static
+var_dump(CaminhaoCacamba::calculaDiasEntrega($caminhaoCacamba->getDataInicioViagem(), $caminhaoCacamba->getDataTerminoViagem())) . PHP_EOL;;

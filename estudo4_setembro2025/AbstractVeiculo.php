@@ -41,10 +41,10 @@ abstract class AbstractVeiculo
     abstract public function iniciarViagem(): void;
     abstract public function encerrarViagem(): void;
 
-    // executa código quando o objeto é destruído pelo unset()
-    public function __destruct() {
-        echo "Destruindo a classe " . get_class($this) . "\n"; ;
-    }
+    // executa código quando o objeto não é mais utilizado no script
+//    public function __destruct() {
+//        echo "Destruindo a classe " . get_class($this) . "\n";
+//    }
 
     /**
      * @return string

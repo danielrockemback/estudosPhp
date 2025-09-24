@@ -132,7 +132,34 @@ for ($i = 0; $i < 50; $i++) {
     $objXml->setChave($chave);
     $objXml->setIdTipoOperacao($idTipoOperacao);
 
-    registraContagemXmlInseridos($objXml, $acumuladorOriginal);
+    // Try Catch usado para capturar excessões sem quebrar o programa
+    /**
+        Principais excessões:
+     * 1- Exception: Genéricas
+     * 2- RuntimeException: Ocorrem por tempo de execução
+     * 3- InvalidArgumentException: Argumento inválido
+     * 4- OutOfBoundsException: índice que não existe
+     * 5- LengthException: Quando o tamanho de algo está fora do esperado
+     * 6- TypeError: Erro de tipagem
+     * 7- Throwable: Serve para capturar erros fatais do PHP
+     */
+    try {
+        registraContagemXmlInseridos($objXml, $acumuladorOriginal);
+
+    } catch (InvalidArgumentException $e) {
+        var_dump("Erro: " . $e->getMessage());
+
+    } catch (RuntimeException $e) {
+        var_dump("Erro: " . $e->getMessage());
+
+    } catch (Exception $e) {
+        var_dump("Erro: " . $e->getMessage());
+
+    } catch (Throwable $e) {
+    var_dump("Erro: " . $e->getMessage());
+
+}
+
 }
 
 if ($acumuladorOriginal) {
