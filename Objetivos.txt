@@ -14,11 +14,11 @@ Objetivo 4 ✔
 Passo 6 - Funções: Declarações e Definições, Parts, Escopo, Referência, Closures
 Passo 7 - OOP: Construtor de classe, Objeto, Autoload, Visibilidade, Construtor/Destrutor, Class Inheritance, Final, Classes e Métodos abstratos, Interface e Trait Construct, Type Hinting, Iteração em objetos, Métodos mágicos, Comparação de Objetos, Static, Exceções e Try/Catch, Biblioteca de Reflexão, SPL, Generators and Generator Delegation, Classes anônimas.
 
-Objetivo 5
+Objetivo 5 ✔
 Passo 8 - Databases: SQL, PDO
 Passo 9 - Segurança: Configuração Segura, Segurança de Sessão, Vetor de Ataque, Input Handling, Output Escaping, Password Hashing API, Armazenamento de dados, Segurança no ciclo de request/response, acesso e armazenamento.
 
-Objetivo 6
+Objetivo 6 ✔
 Passo 10 - Funcionalidade Web: Sessions, HTML Forms and Global Arrays, Codificação/Decodificação, Upload de arquivos, Funções de rede, Autenticação HTTP
 Passo 11 - Tratamento de Erros: Erros e Tipos, Erro de Configuração, Error Functions, User-defined Erros, Try/Catch/Finally Exception Handling, Error Class
 
