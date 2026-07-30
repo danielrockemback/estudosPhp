@@ -14,7 +14,7 @@
  */
 
 // Interface que todo observador precisa implementar e assim o Subject vai saber quem deve ser notificado
-interface Observador
+interface ObservadorInterface
 {
     public function notificar(string $status): void;
 }
@@ -23,7 +23,7 @@ interface Observador
  * Interface do Subject (o "observado"). Define o contrato mínimo:
  * anexar um observador e notificar todo mundo
  */
-interface Notificavel
+interface NotificavelInterface
 {
     public function anexar(Observador $observador): void;
     public function notificarTodos(): void;
@@ -33,7 +33,7 @@ interface Notificavel
  * Classe concreta que representa o objeto observado (o Pedido).
  * Ela guarda a lista de observadores e dispara a notificação quando o status muda
  */
-class Pedido implements Notificavel
+class Pedido implements NotificavelInterface
 {
     // Array que guarda todos os observadores que vão estcutar sobre a mudança do pedido
     private array $observadores = [];
@@ -75,7 +75,7 @@ class Pedido implements Notificavel
 }
 
 // Observador 1: manda um email
-class EmailObservador implements Observador
+class EmailObservador implements ObservadorInterface
 {
     public function notificar(string $status): void
     {
@@ -84,7 +84,7 @@ class EmailObservador implements Observador
 }
 
 // Observador 2: atualiza o "estoque" se o pedido for aprovado
-class EstoqueObservador implements Observador
+class EstoqueObservador implements ObservadorInterface
 {
     public function notificar(string $status): void
     {
@@ -95,7 +95,7 @@ class EstoqueObservador implements Observador
 }
 
 // Observador concreto 3: gera um "log" de auditoria
-class LogObservador implements Observador
+class LogObservador implements ObservadorInterface
 {
     public function notificar(string $status): void
     {
