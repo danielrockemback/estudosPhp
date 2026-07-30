@@ -19,7 +19,7 @@ interface AprovadorDespesa
  * Vamos usar uma classe abstrata que implementa a nossa interface e dentro da classe nós vamos centralizar quano resolver
  * ou delegar
  */
-abstract class AprovadorBase implements AprovadorDespesa
+abstract class AprovadorBaseAbstrata implements AprovadorDespesa
 {
     // Aqui no construtor da classe abstrata nós vamos passar o próximo objeto a ser encadeado via injeção de dependência
     // e se não for passado nenhum argumento no parâmetro isso define o fim do encadeameto
@@ -41,7 +41,7 @@ abstract class AprovadorBase implements AprovadorDespesa
     abstract protected function aprovar(float $valor): string;
 }
 
-class Gestor extends AprovadorBase
+class Gestor extends AprovadorBaseAbstrata
 {
     protected function podeAprovar(float $valor): bool
     {
@@ -54,7 +54,7 @@ class Gestor extends AprovadorBase
     }
 }
 
-class Gerente extends AprovadorBase
+class Gerente extends AprovadorBaseAbstrata
 {
     protected function podeAprovar(float $valor): bool
     {
@@ -67,7 +67,7 @@ class Gerente extends AprovadorBase
     }
 }
 
-class Diretor extends AprovadorBase
+class Diretor extends AprovadorBaseAbstrata
 {
     protected function podeAprovar(float $valor): bool
     {
