@@ -10,7 +10,7 @@ executar uma requisição e se por acaso não for atendida ele pula para próxmo
 /**
  * Aqui vamos criar uma interface para ser implementada na nossa classe abstrata que vai ser a base do encadeamento
  */
-interface AprovadorDespesaInterfaceInterface
+interface AprovadorDespesaInterface
 {
     public function processar(float $valor): string;
 }
