@@ -45,7 +45,7 @@ class Pedido implements NotificavelInterface
 
 
     // Adiciona um novo observador na lista, sem o Pedido saber o que esse observador faz
-    public function anexar(Observador $observador): void
+    public function anexar(ObservadorInterface $observador): void
     {
         $this->observadores[] = $observador;
     }
