@@ -1,20 +1,19 @@
 <?php
 
 /**
- * Observer é um padrão comportamental usado quando um objeto (o Subject/Sujeito) precisa avisar
- * vários outros objetos (os Observers/Observadores) toda vez que algo mudar nele, sem precisar
- * conhecer quem são esses observadores especificamente.
- *
- * O Subject só sabe que existe uma lista de "observadores" que implementam uma interface comum,
- * e chama o método notificar() de cada um. Quem decide o que fazer com essa notificação é
- * responsabilidade de cada Observer, o Subject não sabe e não precisa saber.
- *
- * Exemplo clássico: um pedido muda de status (pendente -> aprovado), e vários serviços precisam
- * reagir a isso (enviar email, gerar nota fiscal, notificar o estoque), sem o Pedido precisar
- * conhecer o EmailService, o EstoqueService, etc.
+ * Observer é um padrão comportamental usado quando um objeto precisa avisar
+ * vários outros objetos (Observers/Observadores) toda vez que algo mudar nele, sem precisar
+ * conhecer quem são esses observadores e após emitir esse evento cada observador decide o que fazer
+ * com a informação.
+ * O objeto só sabe que existe uma lista de observadores que implementam uma interface comum,
+ * e chama o metodo notificar() de cada um avisado que houve um alteração. Quem decide o que fazer com essa notificação é
+ * responsabilidade de cada Observer, o Subject não sabe e não precisa saber. O problema que o Observer resolve é
+ * acoplamento excessivo entre um objeto e tudo o que depende dele
+ * 
+ * SUBJECT = CLASSE QUE VAI SER OBSERVADA PELAS OUTRAS, NESSE CASO A CLASSE PEDIDO
  */
 
-// Interface que todo observador precisa implementar, assim o Subject sabe chamar todos do mesmo jeito
+// Interface que todo observador precisa implementar e assim o Subject vai saber quem deve ser notificado
 interface Observador
 {
     public function notificar(string $status): void;
@@ -22,7 +21,7 @@ interface Observador
 
 /**
  * Interface do Subject (o "observado"). Define o contrato mínimo:
- * anexar um observador, remover um observador e notificar todo mundo
+ * anexar um observador e notificar todo mundo
  */
 interface Notificavel
 {
@@ -36,14 +35,14 @@ interface Notificavel
  */
 class Pedido implements Notificavel
 {
-    // Array que guarda todos os observadores anexados a esse pedido
+    // Array que guarda todos os observadores que vão estcutar sobre a mudança do pedido
     private array $observadores = [];
 
+    // Ao criar um pedido setamos o status como pendente
     private string $status = 'pendente';
 
-    public function __construct(private readonly int $id)
-    {
-    }
+    public function __construct(private readonly int $id) {}
+
 
     // Adiciona um novo observador na lista, sem o Pedido saber o que esse observador faz
     public function anexar(Observador $observador): void
@@ -51,7 +50,8 @@ class Pedido implements Notificavel
         $this->observadores[] = $observador;
     }
 
-    // Percorre todos os observadores anexados e chama o método notificar() de cada um
+    // Aqui é onde tudo acontece, nós vamos percorrer a lista de observadores e notificar sobre a mudança
+    // e cada classe que for notificada escolhe o que fazer com a informação recebida
     public function notificarTodos(): void
     {
         foreach ($this->observadores as $observador) {
@@ -59,18 +59,22 @@ class Pedido implements Notificavel
         }
     }
 
-    // Método que muda o status do pedido e dispara a notificação automaticamente
+    // Método que muda o status do pedido e dispara a notificação automaticamente, se não tiver mudança de status
+    // então ele não disparada nenhuma notificação
     public function mudarStatus(string $novoStatus): void
     {
-        $this->status = $novoStatus;
+        if ($novoStatus !== $this->status) {
+            $this->status = $novoStatus;
+
         echo "Pedido {$this->id} mudou para: {$novoStatus}" . PHP_EOL;
 
         // Assim que o status muda, avisa todo mundo que está observando
         $this->notificarTodos();
+        }     
     }
 }
 
-// Observador concreto 1: manda um "email" (só simulando com echo)
+// Observador 1: manda um email
 class EmailObservador implements Observador
 {
     public function notificar(string $status): void
@@ -79,7 +83,7 @@ class EmailObservador implements Observador
     }
 }
 
-// Observador concreto 2: atualiza o "estoque" (só simulando com echo)
+// Observador 2: atualiza o "estoque" se o pedido for aprovado
 class EstoqueObservador implements Observador
 {
     public function notificar(string $status): void
@@ -90,7 +94,7 @@ class EstoqueObservador implements Observador
     }
 }
 
-// Observador concreto 3: gera um "log" de auditoria (só simulando com echo)
+// Observador concreto 3: gera um "log" de auditoria
 class LogObservador implements Observador
 {
     public function notificar(string $status): void
@@ -99,18 +103,32 @@ class LogObservador implements Observador
     }
 }
 
-// Montagem: cria o pedido e anexa os observadores que queremos que reajam a mudanças nele
+// Cria o pedido 
 $pedido = new Pedido(id: 501);
 
+
+// adiciona os observadores que queremos que reajam a mudanças do pedido
 $pedido->anexar(new EmailObservador());
 $pedido->anexar(new EstoqueObservador());
 $pedido->anexar(new LogObservador());
 
-// Ao mudar o status, o Pedido chama notificarTodos() sozinho (veja dentro de mudarStatus())
-// e cada observador reage do seu próprio jeito, sem o Pedido saber o que cada um faz por dentro
+// Ao mudar o status o Pedido, nós verificamos se o status é diferente do status atual
+// se for diferente ai sim chamamos notificarTodos() e cada observador reage do seu próprio jeito
+// sem o Pedido saber o que cada um faz por dentro
 $pedido->mudarStatus('aprovado');
 
 echo PHP_EOL;
 
 // Se mudar de novo, todos os observadores já anexados reagem de novo automaticamente
 $pedido->mudarStatus('cancelado');
+
+/** Esqueleto do padrão:
+ * A estrutura utilizada deve ser 2 interfaces criadas sendo elas: Quem vai notificar deve ter
+ * o metodo de adicionar os observadores e um metodo de notificar todos os observadores. A outra
+ * interface a ser criada deve ser a Observador e implementada pela classes observadoras e ter o
+ * metodo notificar.
+ * A mágica acontece quando nós mudamos o status do pedido e dentro do metodo verificamos se houve
+ * realmente alguma mudança no status, se sim chamamos o notificarTodos que vai iterar sobre
+ * todos os observadores e chamar o metodo notificar e vamos passar o novo status do pedido para 
+ * eles como argumento e eles decidem o que fazer
+ */
