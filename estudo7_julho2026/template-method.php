@@ -12,7 +12,7 @@ declare(strict_types=1);
  * o executar da classe abstrata vai saber como lidar. Cada tipo de classe que herdar a classe abstrata deve saber como
  * abrir o arquivo, extrair os dados, analisar os dados, etc ...
  */
-abstract class ExtratorDadosBase {
+abstract class ExtratorDadosBaseAbstrata {
 
     // As ordens dentro do template method são fixas e não mudam entre os tipos de arquivos, cada classe que herdar vai
     // decidir como executar tal tarefa, mas não a ordem
@@ -42,7 +42,7 @@ abstract class ExtratorDadosBase {
     }
 }
 
-final class DadosCsv extends ExtratorDadosBase {
+final class DadosCsv extends ExtratorDadosBaseAbstrata {
 
     protected function abrirArquivo(string $caminho): string
     {
@@ -71,7 +71,7 @@ final class DadosCsv extends ExtratorDadosBase {
 }
 
 
-final class DadosPdf extends ExtratorDadosBase {
+final class DadosPdf extends ExtratorDadosBaseAbstrata {
 
     protected function abrirArquivo(string $caminho): string
     {
