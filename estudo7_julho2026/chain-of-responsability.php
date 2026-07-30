@@ -10,7 +10,7 @@ executar uma requisição e se por acaso não for atendida ele pula para próxmo
 /**
  * Aqui vamos criar uma interface para ser implementada na nossa classe abstrata que vai ser a base do encadeamento
  */
-interface AprovadorDespesa
+interface AprovadorDespesaInterfaceInterface
 {
     public function processar(float $valor): string;
 }
@@ -19,12 +19,12 @@ interface AprovadorDespesa
  * Vamos usar uma classe abstrata que implementa a nossa interface e dentro da classe nós vamos centralizar quano resolver
  * ou delegar
  */
-abstract class AprovadorBaseAbstrata implements AprovadorDespesa
+abstract class AprovadorBaseAbstrata implements AprovadorDespesaInterface
 {
     // Aqui no construtor da classe abstrata nós vamos passar o próximo objeto a ser encadeado via injeção de dependência
     // e se não for passado nenhum argumento no parâmetro isso define o fim do encadeameto
     public function __construct(
-        protected readonly ?AprovadorDespesa $proximo = null
+        protected readonly ?AprovadorDespesaInterface $proximo = null
     ) {
     }
 
