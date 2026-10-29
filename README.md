@@ -50,8 +50,8 @@ Padrões de Projetos - Estruturais: Bridge, Decorators, Composite, Face, Proxy
 
 Objetivo 10
 
-Collections: Array e Lista, Pilha, Fila, Heap, Set e Map.Composer, DDD (Linguagem ubíqua, Aggregates, Eventos de domínio, Contextos delimitados, Contexto Compartilhado, Camada anticorrupção)
+Collections: Array e Lista, Pilha, Fila, Heap, Set e Map.Composer
 
 Objetivo 11
-
+DDD (Linguagem ubíqua, Aggregates, Eventos de domínio, Contextos delimitados, Contexto Compartilhado, Camada anticorrupção)
 SOLID
